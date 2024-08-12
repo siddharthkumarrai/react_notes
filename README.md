@@ -12,3 +12,7 @@
       ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
       {  }  => javaScript evaluate expression (matlab mein khali final outcome likhunga}
+
+##useState hook
+      let [ variablename, func ] = useState(parameter like number,array,string,{})
+      func khta hain mein ui mein change karunga
