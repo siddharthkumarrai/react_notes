@@ -22,6 +22,8 @@
 ##useState hook
       let [ variablename, func ] = useState(parameter like number,array,string,{})
       func khta hain mein ui mein change karunga
+      setCounter((prevCounter)=> preCounter + 1)
+      setCounter((prevCounter)=> preCounter + 1)
 
-## react fiber [https://github.com/acdlite/react-fiber-architecture]
+## react fiber [https://github.com/acdlite/react-fiber-architecture] difing algorithm
 ## props function ko property pass karna
