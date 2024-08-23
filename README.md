@@ -18,6 +18,7 @@
       ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
       {  }  => javaScript evaluate expression (matlab mein khali final outcome likhunga}
+/*
 
 ##useState hook
       let [ variablename, func ] = useState(parameter like number,array,string,{})
@@ -46,3 +47,4 @@ passwordRef.current?.setSelectionRange(0,5)
 #### useId() hook use for uniqueId
 const amountInputId = useId()
 
+*/
