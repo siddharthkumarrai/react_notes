@@ -25,16 +25,16 @@
       setCounter((prevCounter)=> preCounter + 1)
       setCounter((prevCounter)=> preCounter + 1)
 
-# react fiber [https://github.com/acdlite/react-fiber-architecture] difing algorithm
-# props function ko property pass karna
+### react fiber [https://github.com/acdlite/react-fiber-architecture] difing algorithm
+### props function ko property pass karna
 **inline style in React style={{backgroundColor:color}}
-# onClick = {function(){}}  onclick ko pura function chiye jo function se return aa rha hain wo nahi chiye ,  (setColor() ese likne ka matlab jo function return value kar rha use le rhe hain)
+### onClick = {function(){}}  onclick ko pura function chiye jo function se return aa rha hain wo nahi chiye ,  (setColor() ese likne ka matlab jo function return value kar rha use le rhe hain)
 
-# const passwordGenerator = useCallback(fn,dependencies array)  mere pas ek function hain use memory mein rakh lo agar mein use dubara se run karu to jitna part use hota hain use use kar lo jo nahi ho pa raha wo nahi ho pa rha
+#### const passwordGenerator = useCallback(fn,dependencies array)  mere pas ek function hain use memory mein rakh lo agar mein use dubara se run karu to jitna part use hota hain use use kar lo jo nahi ho pa raha wo nahi ho pa rha
 usecallback() hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
 
-# useEffect(callback,dependency array)  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
-# useref() kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
+### useEffect(callback,dependency array)  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
+### useref() kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
 const passwordRef = useRef(null)
 agrument ref={passwordRef}
 window.navigator.clipboard.writeText(password)
@@ -43,6 +43,6 @@ passwordRef.current?.setSelectionRange(0,5)
 
 
 **Remember the key in loops in react (agr aap react mein loop kar rahe ho to key ko use karna hi padega
-# useId() hook use for uniqueId
+#### useId() hook use for uniqueId
 const amountInputId = useId()
 
