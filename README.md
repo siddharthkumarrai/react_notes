@@ -44,9 +44,12 @@
 
     usecallback( ) hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
 ```
-
-- useEffect  (  callback,dependency array  )  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
-- useref  ()   kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
+## useEffect
+```javascript
+    useEffect(callback,dependency array)  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
+```
+## useref
+- useref ()   kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
   ```javascript
     const passwordRef = useRef(null)
     agrument ref={passwordRef}
@@ -54,8 +57,11 @@
     passwordRef.current?.select()
     passwordRef.current?.setSelectionRange(0,5)
   ```
-- Remember the key in loops in react (agr aap react mein loop kar rahe ho to key ko use karna hi padega
-- useId  ()   hook use for uniqueId
+> [!IMPORTANT]
+> Remember the key in loops in react (agr aap react mein loop kar rahe ho to key ko use karna hi padega
+
+## useId
+- useId() hook use for uniqueId
 ```javascript
   const amountInputId = useId()
 ```
