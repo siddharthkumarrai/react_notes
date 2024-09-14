@@ -40,10 +40,10 @@
 
 - const passwordGenerator = useCallback(fn,dependencies array)  mere pas ek function hain use memory mein rakh lo agar mein use dubara se run karu to jitna part use hota hain use use kar lo jo nahi ho pa raha wo nahi ho pa rha
 
-- usecallback() hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
+- usecallback  () hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
 
-- useEffect(callback,dependency array)  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
-- useref() kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
+- useEffect  (  callback,dependency array  )  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
+- useref  ()   kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
   ```javascript
     const passwordRef = useRef(null)
     agrument ref={passwordRef}
@@ -52,7 +52,7 @@
     passwordRef.current?.setSelectionRange(0,5)
   ```
 - Remember the key in loops in react (agr aap react mein loop kar rahe ho to key ko use karna hi padega
-- useId() hook use for uniqueId
+- useId  ()   hook use for uniqueId
 ```javascript
   const amountInputId = useId()
 ```
