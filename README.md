@@ -30,7 +30,7 @@
       setCounter((prevCounter)=> preCounter + 1)
 ```
 
-## react fiber [https://github.com/acdlite/react-fiber-architecture] difing algorithm
+-- react fiber [https://github.com/acdlite/react-fiber-architecture] difing algorithm
 
 ## props function ko property pass karna
 
