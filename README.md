@@ -3,11 +3,11 @@
 - npx create-react-app filename
 - npm create vite@latest
 
-### React/ReactDom (ye dono library kam aati hain web ke dom ko manipulation karne ke leye)
+#### React/ReactDom (ye dono library kam aati hain web ke dom ko manipulation karne ke leye)
 
-### React (core foundational library hain jo ki sare references lene ka kam karti hain)
+#### React (core foundational library hain jo ki sare references lene ka kam karti hain)
 
-### ReactDom (react ka implimantain hain web pr)
+#### ReactDom (react ka implimantain hain web pr)
 
 ## How react work
 ```javascript
