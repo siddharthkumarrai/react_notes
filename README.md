@@ -38,9 +38,12 @@
 
 - onClick = {function(){}}  onclick ko pura function chiye jo function se return aa rha hain wo nahi chiye ,  (setColor() ese likne ka matlab jo function return value kar rha use le rhe hain)
 
-- const passwordGenerator = useCallback(fn,dependencies array)  mere pas ek function hain use memory mein rakh lo agar mein use dubara se run karu to jitna part use hota hain use use kar lo jo nahi ho pa raha wo nahi ho pa rha
+## useCallback
+```javascript
+    const passwordGenerator = useCallback(fn,dependencies array) //  mere pas ek function hain use memory mein rakh lo agar mein use dubara se run karu to jitna part use hota hain use use kar lo jo nahi ho pa raha wo nahi ho pa rha
 
-- usecallback  () hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
+    usecallback( ) hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
+```
 
 - useEffect  (  callback,dependency array  )  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
 - useref  ()   kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
