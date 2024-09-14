@@ -32,11 +32,9 @@
 -
     - react fiber [https://github.com/acdlite/react-fiber-architecture] difing algorithm
 
-## props function ko property pass karna
-
-- inline style in React style={{backgroundColor:color}}
-
-- onClick = {function(){}}  onclick ko pura function chiye jo function se return aa rha hain wo nahi chiye ,  (setColor() ese likne ka matlab jo function return value kar rha use le rhe hain)
+- props function ko property pass karna
+    - inline style in React style={{backgroundColor:color}}
+    - onClick = {function(){}}  onclick ko pura function chiye jo function se return aa rha hain wo nahi chiye ,  (setColor() ese likne ka matlab jo function return value kar rha use le rhe hain)
 
 ## useCallback
 ```javascript
