@@ -39,10 +39,35 @@
     const passwordGenerator = useCallback(fn,dependencies array) //  mere pas ek function hain use memory mein rakh lo agar mein use dubara se run karu to jitna part use hota hain use use kar lo jo nahi ho pa raha wo nahi ho pa rha
 
     usecallback( ) hook function ko run karne ke leye responsible nahi hain ye usko memoisation kara hain usko optimize karta hain use cachememory mein rakhta hain
+
+    let passwordGenerate = useCallback(()=>{
+    let pass = ""
+    let str = ""
+    if(includeUpperCase){
+      str += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    if(includeLowerCase) {
+      str += "abcdefghijklmnopqrstuvwxyz"
+    }
+    if(includeNumber){
+      str += "0123456789"
+    }
+    if(includeSymbol){
+      str += ""
+    }
+    for(let i=0; i<passwordLength; i++ ){
+     let index = Math.floor( Math.random()*str.length+ 1)
+     pass += str.charAt([index])
+    }  
+  },[passwordLength,includeLowerCase,includeUpperCase,includeNumber,includeSymbol])
 ```
 ## useEffect
 ```javascript
     useEffect(callback,dependency array)  agar dependience mein kuch bhi ched char hui to mein dubara se run ho jaunga
+
+    useEffect(()=>{
+        passwordGenerate()
+    },[passwordLength,includeUpperCase,includeLowerCase,includeNumber,includeSymbol,setWholePassword])
 ```
 ## useref
 - useref ()   kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
