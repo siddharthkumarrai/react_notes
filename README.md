@@ -73,10 +73,21 @@
 - useref ()   kisi bhi cheze ka reference lena hota hain tab useRef() hook use karte hain
   ```javascript
     const passwordRef = useRef(null)
-    agrument ref={passwordRef}
-    window.navigator.clipboard.writeText(password)
-    passwordRef.current?.select()
-    passwordRef.current?.setSelectionRange(0,5)
+    <input
+        type="text"
+        value={wholePassword}
+        ref={passwordRef}
+        readOnly
+        className="outline-none"
+    />
+    <button
+      onClick={() => {
+      passwordRef.current?.select();
+      navigator.clipboard.writeText(wholePassword)
+      }}
+    >
+      copy
+    </button>
   ```
 > [!IMPORTANT]
 > Remember the key in loops in react (agr aap react mein loop kar rahe ho to key ko use karna hi padega
