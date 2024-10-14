@@ -46,15 +46,6 @@
     if(includeUpperCase){
       str += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     }
-    if(includeLowerCase) {
-      str += "abcdefghijklmnopqrstuvwxyz"
-    }
-    if(includeNumber){
-      str += "0123456789"
-    }
-    if(includeSymbol){
-      str += ""
-    }
     for(let i=0; i<passwordLength; i++ ){
      let index = Math.floor( Math.random()*str.length+ 1)
      pass += str.charAt([index])
