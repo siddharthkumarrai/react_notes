@@ -96,5 +96,14 @@
 - useId() hook use for uniqueId
 ```javascript
   const amountInputId = useId()
+
+        <label htmlFor={amountInputId}>
+            label
+        </label>
+
+        <input htmlFor={amountInputId}
+          type="number"
+          placeholder="Amount"
+        />
 ```
 
