@@ -97,4 +97,12 @@
           placeholder="Amount"
         />
 ```
+## React Router
+> install
+```javascript
+npm i react-router-dom
+```
+```javascript
+import {Link, NavLink} from 'react-router-dom'
+```
 
