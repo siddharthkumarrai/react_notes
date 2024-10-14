@@ -103,6 +103,58 @@
 npm i react-router-dom
 ```
 ```javascript
+Link a tag ki jgha use karte hain , Link page reload hone se bachata hain
+
 import {Link, NavLink} from 'react-router-dom'
+
+  <NavLink
+    to="/home"
+    className={({isActive}) =>`block py-2 pr-4 pl-3 duration-200 ${isActive?"bg-slate-500":"bg-slate-50"}`}
+  >
+     Home
+  </NavLink>
+```
+> Main.jsx
+```javascript
+import {RouterProvider } from 'react-router-dom'
+
+Method 1 : for creacting router
+const router = createBrowserRouter([
+     {
+       path:"/",
+       element: <Layout />,
+       children: [
+         {
+           path:"",
+           element: <Home />
+         },
+         {
+           path:"about",
+           element: <About />
+         }
+      ]
+    }
+ ])
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router}/>
+  </React.StrictMode>,
+)
+```
+> src/Layout.jsx
+```javascript
+import {Outlet} from 'react-router-dom'
+
+function Layout() {
+  return (
+    <>
+    <Header />
+    <Outlet />
+    <Footer />
+    </>
+  )
+}
 ```
 
