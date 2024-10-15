@@ -113,6 +113,10 @@ import {Link, NavLink} from 'react-router-dom'
   >
      Home
   </NavLink>
+
+   <Link to="/" >
+      Logo
+   </Link>
 ```
 > src/Layout.jsx
 ```javascript
