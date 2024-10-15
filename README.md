@@ -258,4 +258,85 @@ const router = createBrowserRouter(
   )
 )
 ```
+## Context API
+```javascript
+-> src/context
+-> context/User.js
+
+- step 1 : Making context
+
+> context/User.js
+    import React from 'react'
+
+    const UserContext = React.createContext()
+
+    export default UserContext
+
+- step 2 : Making context Provider
+
+> context/UserContextProvider.jsx
+import React from 'react'
+import UserContext from './UserContext'
+
+
+const UserContextProvider = ({children}) => {
+    const [user, setUser] = React.useState(null)
+    return(
+    <UserContext.Provider value={{user,setUser}}>
+     {children}
+    </UserContext.Provider>
+    )
+}
+
+export default UserContextProvider
+
+- step 3: setData
+
+import React,{useState,useContext} from 'react'
+import UserContext from '../context/UserContext'
+
+function Login() {
+    const [username,setUsername] = useState("")
+    const [password, setPassword] = useState("")
+
+    const {setUser} = useContext(UserContext)
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        setUser({username,password})
+    }
+  return (
+    <div>
+        <h2>Login</h2>
+        <input 
+        type='text' 
+        placeholder='username'
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        />
+        <button 
+        onClick={handleSubmit}>Submit
+        </button>
+    </div>
+  )
+}
+
+export default Login
+
+- step 4: read data
+
+import {React, useContext} from "react"
+import UserContext from "../context/UserContext"
+
+
+function Profile() {
+    const {user} = useContext(UserContext)
+
+    if(!user) return <div>Please login</div>
+    return <div>Welcome {user.username}</div>
+}
+
+export default Profile
+```
+
 
