@@ -264,8 +264,8 @@ const router = createBrowserRouter(
 -> context/User.js
 
 - step 1 : Making context
-
 > context/User.js
+
     import React from 'react'
 
     const UserContext = React.createContext()
@@ -273,7 +273,6 @@ const router = createBrowserRouter(
     export default UserContext
 
 - step 2 : Making context Provider
-
 > context/UserContextProvider.jsx
 
 import React from 'react'
