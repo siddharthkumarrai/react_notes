@@ -259,6 +259,8 @@ const router = createBrowserRouter(
 )
 ```
 ## Context API
+
+- Method 1:
 ```javascript
 -> src/context
 -> context/User.js
@@ -356,6 +358,84 @@ function Profile() {
 }
 
 export default Profile
+```
+- Method 2:
+```javascript
+
+- setp 1
+>src/context/theme.js
+import { createContext, useContext } from "react";
+
+export const ThemeContext = createContext({
+    themeMode: "light",
+    darkTheme: () => {},
+    lightTheme: () => {},
+})
+
+export const ThemeProvider = ThemeContext.Provider
+
+
+export default function useTheme(){
+    return useContext(ThemeContext )
+}
+
+- step 2
+
+import React from 'react'
+import useTheme from '../contexts/theme';
+
+export default function ThemeBtn() {
+    
+    const {themeMode, lightTheme, darkTheme} = useTheme()
+    const onChangeBtn = (e) => {
+        const darkModeStatus = e.currentTarget.checked
+        if (darkModeStatus) {
+            darkTheme()
+        } else {
+            lightTheme()
+        }
+    }
+    return (
+        <label className="relative inline-flex items-center cursor-pointer">
+            <input
+                type="checkbox"
+                value=""
+                className="sr-only peer"
+                onChange={onChangeBtn}
+            />
+        </label>
+    );
+}
+
+- step 3:
+
+import { ThemeProvider } from './contexts/theme'
+
+function App() {
+  const [themeMod, setThemeMod] = useState("light")
+
+  const lightTheme = () =>{
+    setThemeMod("light")
+  }
+
+  const darkTheme = () =>{
+    setThemeMod("dark")
+  }
+
+  useEffect(()=>{
+    document.querySelector('html').classList.remove("light","dark")
+    document.querySelector('html').classList.add(themeMod)
+  },[themeMod])
+
+  return (
+    <ThemeProvider value={{themeMod,lightTheme,darkTheme}}>
+           { <ThemeBtn/>}
+           { <Card />}
+    </ThemeProvider>
+  )
+}
+
+export default App
 ```
 
 
