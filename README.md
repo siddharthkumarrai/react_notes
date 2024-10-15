@@ -114,6 +114,20 @@ import {Link, NavLink} from 'react-router-dom'
      Home
   </NavLink>
 ```
+> src/Layout.jsx
+```javascript
+import {Outlet} from 'react-router-dom'
+
+function Layout() {
+  return (
+    <>
+    <Header />
+    <Outlet />
+    <Footer />
+    </>
+  )
+}
+```
 > Main.jsx
 ```javascript
 import {RouterProvider } from 'react-router-dom'
@@ -210,7 +224,6 @@ import React,{useEffect, useState,} from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 function Github() {
-
     const data = useLoaderData()
 
   return (
@@ -219,7 +232,6 @@ function Github() {
     </div>    
   )
 }
-
 export default Github
 
 export async function githubloader (){
@@ -228,6 +240,9 @@ export async function githubloader (){
 }
 
 - Main.jsx
+
+import Github, { githubloader } from './components/github/Github.jsx'
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>} >
@@ -238,21 +253,5 @@ const router = createBrowserRouter(
     </Route>
   )
 )
-```
-
-
-> src/Layout.jsx
-```javascript
-import {Outlet} from 'react-router-dom'
-
-function Layout() {
-  return (
-    <>
-    <Header />
-    <Outlet />
-    <Footer />
-    </>
-  )
-}
 ```
 
