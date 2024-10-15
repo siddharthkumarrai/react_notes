@@ -275,6 +275,7 @@ const router = createBrowserRouter(
 - step 2 : Making context Provider
 
 > context/UserContextProvider.jsx
+
 import React from 'react'
 import UserContext from './UserContext'
 
@@ -290,7 +291,26 @@ const UserContextProvider = ({children}) => {
 
 export default UserContextProvider
 
-- step 3: setData
+- step 3: wrap component
+> App.jsx
+
+import Login from './components/Login'
+import Profile from './components/Profile'
+import UserContextProvider from './context/UserContextProvider'
+
+function App() {
+
+  return (
+    <UserContextProvider>
+      <Login />
+      <Profile />
+    </UserContextProvider>
+  )
+}
+
+export default App
+
+- step 4: setData
 
 import React,{useState,useContext} from 'react'
 import UserContext from '../context/UserContext'
@@ -323,7 +343,7 @@ function Login() {
 
 export default Login
 
-- step 4: read data
+- step 5: read data
 
 import {React, useContext} from "react"
 import UserContext from "../context/UserContext"
@@ -338,5 +358,7 @@ function Profile() {
 
 export default Profile
 ```
+
+
 
 
