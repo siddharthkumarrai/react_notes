@@ -136,6 +136,19 @@ const router = createBrowserRouter([
     }
  ])
 
+Method 2 : for creacting router
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Layout/>} >
+      <Route path='' element={<Home />}/>
+      <Route path='about' element={<About/>}/>
+      <Route path='contact' element={<Contact/>} />
+      <Route path='user/:id' element={<User />} />
+      <Route loader={githubloader} path='github' element={<Github />} />
+    </Route>
+  )
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -143,6 +156,95 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 ```
+> Extract value from url
+```javascript
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Layout/>} >
+      <Route path='' element={<Home />}/>
+      <Route path='user/:id' element={<User />} />
+    </Route>
+  )
+)
+
+- User.jsx
+import React from 'react'
+import {useParams} from 'react-router-dom'
+
+function User() {
+    const {id} = useParams()
+  return (
+    <div className=' text-center'>User: {id}</div>
+  )
+}
+export default User
+```
+> api handle
+- Method: 1
+```javascript
+import React,{useEffect, useState,} from 'react'
+
+function Github() {
+    const data = useLoaderData()
+       const [data, setData] = useState([])
+       useEffect(()=>{
+         fetch("https://api.github.com/users/siddharthkumarrai")
+         .then( res => res.json())
+         .then( (data) => {
+            console.log(data)
+            setData(data)
+      
+         },)
+       },[])
+
+  return (
+    <div>
+        <h3>folowers : {data.followers} </h3>
+    </div>    
+  )
+}
+
+export default Github
+```
+- Method: 2
+```javascript
+- Github.jsx
+
+import React,{useEffect, useState,} from 'react'
+import { useLoaderData } from 'react-router-dom'
+
+function Github() {
+
+    const data = useLoaderData()
+
+  return (
+    <div>
+        <h3>folowers : {data.followers} </h3>
+    </div>    
+  )
+}
+
+export default Github
+
+export async function githubloader (){
+    const res = await fetch("https://api.github.com/users/siddharthkumarrai")
+    return res.json()
+}
+
+- Main.jsx
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Layout/>} >
+      <Route path='' element={<Home />}/>
+      <Route path='github' element={<Github />}
+             loader={githubloader}
+       />
+    </Route>
+  )
+)
+```
+
+
 > src/Layout.jsx
 ```javascript
 import {Outlet} from 'react-router-dom'
