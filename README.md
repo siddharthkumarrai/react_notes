@@ -507,7 +507,79 @@ import {configureStore} from '@reduxjs/toolkit'
 import todoReducer from '../features/todo/todoSlice'
 
 export const store = configureStore({
-    reducer: todoReducer                ⬅️⬅️⬅️⬅️
+    reducer: todoReducer                ⬅️
 })
 ```
+- step4:- dispatched the value in store
+> AddTodo.jsx
+```javascript
+
+import { useDispatch } from 'react-redux'                ⚠️
+import {addTodo} from '../features/todo/todoSlice'       ⚠️
+
+function AddTodo() {
+
+    const [input, setInput] = useState('')
+    const dispatch = useDispatch()                        ⚠️
+
+    const addTodoHandler = (e) => {
+        e.preventDefault()
+        dispatch(addTodo(input))                           ⚠️
+        setInput('')
+    }
+
+
+  return (
+    <form onSubmit={addTodo} >
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button
+        type="submit"
+      >
+        Add Todo
+      </button>
+    </form>
+  )
+}
+
+export default AddTodo
+```
+- step5:- Select the value in store
+> TodoList.jsx
+```javascript
+
+import { useSelector, useDispatch } from 'react-redux'            ⚠️
+import { removeTodo } from '../features/todo/todoSlice'           ⚠️
+
+function Todo() {
+    const todos = useSelector( state=> state.todos)               ⚠️
+    const dispatch = useDispatch()
+    
+  return (
+    <>
+    <div>Todos</div>
+    <ul className="list-none">
+        {todos.map((todo) => (
+          <li
+            key={todo.id}
+          >
+            <div>{todo.text}</div>
+            {console.log(todo.text)}
+            <button
+             onClick={() => dispatch(removeTodo(todo.id))}
+            >
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+export default Todo
+```
+
 
