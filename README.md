@@ -459,3 +459,54 @@ npm install @reduxjs/toolkit
 ```javascript
 npm install react-redux
 ```
+step1:- Making store
+- src/app/store.js
+```javascript
+import {configureStore} from '@reduxjs/toolkit'
+
+export const store = configureStore({})
+```
+step2:- Making Reducers 
+- src/features/todo/todoSlice.js
+```javascript
+import { createSlice, nanoid } from '@reduxjs/toolkit'
+
+const initialState = {
+    todos:[
+        {
+            id: 1,
+            text: "hello world"
+        }
+    ]
+}
+
+export const todoSlice = createSlice({
+    name: 'todo',
+    initialState,
+    reducers: {
+        addTodo: (state, action) => {
+            const todo = {
+                id: nanoid(),
+                text: action.payload
+            }
+            state.todos.push(todo)
+        },
+        removeTodo: (state, action) => {
+            state.todos = state.todos.filter((todo) => todo.id !== action.payload)
+        },
+    }
+})
+
+export const {addTodo, removeTodo} = todoSlice.actions
+
+export default todoSlice.reducer
+```
+- step3:- pass reducers to store
+import {configureStore} from '@reduxjs/toolkit'
+import todoReducer from '../features/todo/todoSlice'
+
+export const store = configureStore({
+    reducer: todoReducer                ⬅️⬅️⬅️⬅️
+})
+```
+
