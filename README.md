@@ -451,3 +451,11 @@ export default App
      localStorage.setItem("todos",JSON.stringify(todos))
   },[todos])
 ```
+## Redux
+> Installation
+```javascript
+npm install @reduxjs/toolkit
+```
+```javascript
+npm install react-redux
+```
