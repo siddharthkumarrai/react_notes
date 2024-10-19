@@ -582,5 +582,8 @@ function Todo() {
 
 export default Todo
 ```
+> step 6 :-
+- main.jsx
+```javascript
 
 
