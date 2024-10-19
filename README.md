@@ -478,7 +478,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </Provider>,
 )
 ```
-> step 3 :- Making Reducers 
+> step 3 :- Making Reducers or Slice
 - src/features/todo/todoSlice.js
 ```javascript
 import { createSlice, nanoid } from '@reduxjs/toolkit'
