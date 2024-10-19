@@ -459,14 +459,14 @@ npm install @reduxjs/toolkit
 ```javascript
 npm install react-redux
 ```
-step1:- Making store
+> step1:- Making store
 - src/app/store.js
 ```javascript
 import {configureStore} from '@reduxjs/toolkit'
 
 export const store = configureStore({})
 ```
-step2:- Making Reducers 
+> step2:- Making Reducers 
 - src/features/todo/todoSlice.js
 ```javascript
 import { createSlice, nanoid } from '@reduxjs/toolkit'
@@ -501,7 +501,7 @@ export const {addTodo, removeTodo} = todoSlice.actions
 
 export default todoSlice.reducer
 
-- step3:- pass reducers to store
+> step3:- pass reducers to store
 ```javascript
 import {configureStore} from '@reduxjs/toolkit'
 import todoReducer from '../features/todo/todoSlice'
@@ -510,8 +510,8 @@ export const store = configureStore({
     reducer: todoReducer                ⬅️
 })
 ```
-- step4:- dispatched the value in store
-> AddTodo.jsx
+> step4:- dispatched the value in store
+- AddTodo.jsx
 ```javascript
 
 import { useDispatch } from 'react-redux'                ⚠️
@@ -547,8 +547,8 @@ function AddTodo() {
 
 export default AddTodo
 ```
-- step5:- Select the value in store
-> TodoList.jsx
+> step5:- Select the value in store
+- TodoList.jsx
 ```javascript
 
 import { useSelector, useDispatch } from 'react-redux'            ⚠️
