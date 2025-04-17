@@ -596,3 +596,73 @@ export default Todo
 ```
 
 
+# REACT REDUX
+- step 1: Making a Store
+> src/redux/store.js
+```javascript
+import { createStore } from "redux"
+
+const reducer = (state = 0, action) => {
+    if (action.type === "INCREMENT") {
+        return state + 1
+    } else {
+        return state
+    }
+}
+
+const store = createStore(reducer)
+
+export default store
+```
+- step 2: setUp store
+> main.jsx
+```JavaScript 
+import { Provider } from "react-redux"
+import store from "./redux/store.js"
+
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </StrictMode>,
+)
+```
+> components/Counter.jsx
+```javascript
+import React from 'react'
+import Counter from './components/Counter'
+import { useDispatch } from "react-redux"
+
+function App() {
+  const dispatch = useDispatch()
+  return (
+    <div>
+      <Counter />
+      <button onClick={(e) => dispatch({ type: "INCREMENT" })}>INCREMENT</button>
+    </div>
+  )
+}
+
+export default App
+```
+> App.jsx
+```
+import React from 'react'
+import Counter from './components/Counter'
+import { useDispatch } from "react-redux"
+
+function App() {
+  const dispatch = useDispatch()
+  return (
+    <div>
+      <Counter />
+      <button onClick={(e) => dispatch({ type: "INCREMENT" })}>INCREMENT</button>
+    </div>
+  )
+}
+
+export default App
+```
