@@ -651,7 +651,7 @@ export default App
 ```
 - step 4:- set the value in Store Variables 
 > App.jsx
-```
+```Javascript 
 import React from 'react'
 import Counter from './components/Counter'
 import { useDispatch } from "react-redux"
