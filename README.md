@@ -668,3 +668,35 @@ function App() {
 
 export default App
 ```
+# Redux Toolkit
+```node 
+npm install @reduxjs/toolkit
+npm install react-redux
+```
+step 1:- make a store
+> Redux/store.js
+```javascript
+import {configureStore} from "@reduxjs/toolkit"
+
+export const store = configureStore({
+    reducer: {
+
+})
+```
+> step 2:- make a slice
+> redux/slices/cartSlice.js
+```javascript
+import { createSlice } from "@reduxjs/toolkit"
+
+const cartSlice = createSlice({
+    name: "Cart",
+    initialState: [],
+    reducers: {
+        addItem: (state,action)=>{
+            state = [...state, action.payload]
+        }
+    }
+})
+
+export default cartSlice.reducers;
+```
