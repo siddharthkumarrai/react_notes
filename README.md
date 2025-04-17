@@ -630,6 +630,7 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 ```
+- step 3: Retrieve the value/ read the state value
 > components/Counter.jsx
 ```javascript
 import React from 'react'
@@ -648,6 +649,7 @@ function App() {
 
 export default App
 ```
+- step 4:- set the value in Store Variables 
 > App.jsx
 ```
 import React from 'react'
